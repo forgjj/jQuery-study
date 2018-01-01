@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.2.1.js"></script>
+</head>
+<style>
+    nav{
+        width: 360px;
+        height: 60px;
+        background-color: #ccc;
+        border-radius: 30px;
+        border:3px solid #ccc;
+        margin:0 auto;
+        display: flex;
+        position: relative;
+
+    }
+    nav [class ^= son]{
+        width: 90px;
+        height: 100%;
+        border-radius: 30px;
+        line-height: 60px;
+        text-align: center;
+        position: relative;
+        z-index: 66;
+    }
+    nav .bj{
+        width: 90px;
+        height: 100%;
+        border-radius: 30px;
+        background-color: aqua;
+        position:absolute;
+        top:0;
+        transition: .5s;
+    }
+
+    nav>div:nth-of-type(1).hot~ .bj{
+        transform: translateX(0);
+    }
+    nav>div:nth-of-type(2).hot~ .bj{
+        transform: translateX(100%);
+    }
+    nav>div:nth-of-type(3).hot~ .bj{
+        transform: translateX(200%);
+    }
+    nav>div:nth-of-type(4).hot~ .bj{
+        transform: translateX(300%);
+    }
+
+</style>
+<body>
+<nav>
+    <div class="son1 hot">第一</div>
+    <div class="son2">第二</div>
+    <div class="son3">第三</div>
+    <div class="son4">第四</div>
+    <div class="bj"></div>
+</nav>
+</body>
+</html>
+<script>
+    $(function(){
+        let son = $('nav>[class ^= son]');
+        son.on('click',function(){
+            son.removeClass('hot');
+            $(this).addClass('hot');
+        })
+
+    })
+
+</script>

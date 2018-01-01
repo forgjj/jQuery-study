@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="myjquery.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+<script>
+
+
+    aa(function(){
+        $('div').html('this is div')
+        .css({width:'200px',height:'300px','background-color':'red',float:'left',margin:'10px 20px',textAlign:'center',lineHeight:'300px'})
+    .click(function(){
+        $(this).css({'background-color':'aqua'});
+        })
+            .dblclick(function(){
+            $(this).css({'background-color':'blue'});
+        })
+            .addClass('box').removeClass('box')
+            .attr('aa','bb')
+
+
+
+
+
+    })
+
+
+
+</script>

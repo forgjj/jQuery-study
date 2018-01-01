@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>circle</title>
+    <script src="../jquery-3.2.1.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        width: 1px;
+        height: 1px;
+        position:absolute;
+        top:50%;
+        left:50%;
+    }
+    .circle{
+        width: 15px;
+        height: 15px;
+        background: aqua;
+        border-radius: 100%;
+        position:absolute;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    /*
+    *  圆心  角度 根据角度算出X Y 轴的坐标 半径 弧度
+    * */
+    $(function(){
+        let num = 40,n = 5,r = 150;
+        let box = $('.box'),ang = 360/num * Math.PI/180;
+        for(let i=0;i<num*n;i++){
+            if(i%num == 0){
+                r+=30;
+            }
+            let left = r*Math.cos(ang*i),top = r * Math.sin(ang*i);
+            let divs = $('<div>');
+            let color = `rgb(${Math.floor(Math.random()*num*n)},
+                               ${Math.floor(Math.random()*num*n)},
+                               ${Math.floor(Math.random()*num*n)})`;
+            divs.addClass('circle').appendTo('.box');
+            divs.css({backgroundColor:color});
+            divs.delay(100*i).animate({left,top});
+        }
+    })
+
+</script>

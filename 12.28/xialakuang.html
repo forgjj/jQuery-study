@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .box{
+        width: 800px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f6f6f6;
+        margin:20px auto;
+    }
+    .son{
+        width: 200px;
+        height: 100%;
+        font-size: 30px;
+        line-height: 60px;
+        text-align: center;
+
+    }
+    .list{
+        width: 180px;
+        height: auto;
+        margin:0 10px;
+        background-color: #ccc;
+        overflow: hidden;
+        display: none;
+    }
+    .list>li{
+        width: 100%;
+        line-height: 30px;
+        font-size: 24px;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+</style>
+<body>
+    <ul class="box">
+        <li class="son">
+            首页
+            <ul class="list">
+                <li>首页1</li>
+                <li>首页2</li>
+                <li>首页3</li>
+                <li>首页4</li>
+                <li>首页5</li>
+            </ul>
+        </li>
+        <li class="son">
+            动态
+            <ul class="list">
+                <li>动态1</li>
+                <li>动态2</li>
+                <li>动态3</li>
+                <li>动态4</li>
+                <li>动态5</li>
+            </ul>
+        </li>
+        <li class="son">
+            项目
+            <ul class="list">
+                <li>项目1</li>
+                <li>项目2</li>
+                <li>项目3</li>
+                <li>项目4</li>
+                <li>项目5</li>
+                <li>项目6</li>
+                <li>项目7</li>
+            </ul>
+        </li>
+        <li class="son">
+            关于我们
+            <ul class="list">
+                <li>首页1</li>
+                <li>首页2</li>
+                <li>首页3</li>
+                <li>首页4</li>
+                <li>首页5</li>
+            </ul>
+        </li>
+
+    </ul>
+
+</body>
+</html>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(function(){
+        let son = $('.son'),list = $('.list');
+        /*son.on('mouseenter',function(index,value){
+            $(this).children().slideDown();
+        });
+        son.on('mouseleave',function(index,value){
+            $(this).children().slideUp();
+        });*/
+        son.on('mouseenter mouseleave',function(index,value){
+            $(this).children().stop();
+            $(this).children().slideToggle();
+        });
+
+
+    })
+
+</script>

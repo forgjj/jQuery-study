@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车添加</title>
+    <script src="../jquery-3.2.1.js"></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        border:0;
+    }
+    .box{
+        width: 180px;
+        height: auto;
+        box-shadow: 0 0 4px 1px rgba(0,0,0,0.2) inset;
+        padding:6px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px auto;
+        border-radius: 6px;
+    }
+    button{
+        outline: none;
+        width: 30px;
+        height: 30px;
+        background: #f6f6f6;
+        line-height: 30px;
+        text-align: center;
+        color:#F61986;
+        border-radius:50%;
+
+    }
+    .num{
+        width: 90px;
+        height: 40px;
+        border:1px solid #ccc;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 6px;
+    }
+</style>
+<body>
+  <div class="box">
+      <button>-</button>
+      <div class="num">0</div>
+      <button>+</button>
+  </div>
+
+</body>
+</html>
+<script>
+    $(function(){
+        let lbtn = $('button:first-child'),rbtn = $('button:last-child');
+        let num = 0;
+        lbtn.click(function(){
+            num--;
+            if(num<=0){
+                num = 0;
+            }
+            $(this).next().html(num)
+        });
+        rbtn.click(function(){
+            num++;
+            $(this).prev().html(num)
+        })
+
+    })
+</script>

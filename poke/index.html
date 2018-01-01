@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        body{
+            width:100%;
+            height:800px;
+            background: url("img/timg%20(1).jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        table{
+            width:1200px;
+            height:800px;
+            background: rgba(0,20,0,0.2);
+            position: absolute;
+            left:0;
+            right:0;
+            margin:0 auto;
+            margin-top: 50px;
+        }
+        .hot{
+            width:90px;
+            height: 140px;
+            background: #ffffff;
+            position: absolute;
+            border:1px solid #000000;
+            left:550px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<table></table>
+</body>
+</html>
+<script>
+    let poke = [];
+    colorarr = ['h','m','r','f'];
+    let flag ={};
+    for(let i =0;i<52;i++){
+        let obj = {};
+        let color = colorarr[Math.floor(Math.random()*4)],
+                num = Math.floor(Math.random()*13+1);
+        do{
+            color = colorarr[Math.floor(Math.random()*4)];
+            num = Math.floor(Math.random()*13+1);
+        }while(flag[color+'_'+num])
+//        console.log(color,num);
+        poke.push({color,num})
+        flag[color+'_'+num] = true;
+    }
+//    while (poke.length<52){
+//        let obj = {};
+//        let color = colorarr[Math.floor(Math.random()*4)],
+//                num = Math.floor(Math.random()*13+1);
+//        if(!flag[color+'_'+num]){
+//            poke.push({color,num})
+//        flag[color+'_'+num] = true;
+//        }
+//    }
+    let index=0;
+    for(let i=0;i<7;i++){
+        for(let j=0;j<=i;j++){
+            let divs = $('<div>');
+            let left = 545 -50*i +100*j;
+            let top = 60*i;
+            index++;
+            divs.addClass('hot').appendTo('table').delay(index*100).animate({
+                left,top,opacity:1
+            });
+        }
+    }
+</script>

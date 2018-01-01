@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.2.1.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    ul{
+        width: 1000px;
+        height: auto;
+        margin:20px auto;
+        border:1px solid #ccc;
+        border-radius: 10px;
+        padding:10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    li{
+        width: 300px;
+        height: 240px;
+        margin-bottom:20px;
+        border:1px solid #ccc;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: .5s;
+    }
+    .active{
+        width: 300px;
+        height: 300px;
+        border:1px solid #ccc;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 0 0 3000px rgba(0,0,0,0.7);
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-left:-150px;
+        margin-top:-150px;
+        display:none;
+        transition: s;
+    }
+    .hot{
+        box-shadow: 0 0 3000px 0 rgba(0,0,0,0.7);
+        transform: rotate(360deg);
+        transition: 5s;
+        /*transform: scale(100 ,100);*/
+    }
+</style>
+<body>
+<ul>
+    <li class="son">1</li>
+    <li class="son">2</li>
+    <li>3</li>
+    <li class="son">4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+<div class="active"></div>
+</body>
+</html>
+<script>
+    $(function() {
+        $('li').click(function () {
+            /* console.log($(this));*/
+            $(this).filter('.son').css({
+                'background': 'aqua',
+                transition: '1s',
+                transform: 'rotate(360deg)'
+            }).addClass('.hot');
+//        $(this).css({height:'+=25'});
+            /*$('div').filter(function(){
+            return $('.active').css({display:'block'});
+        });*/
+        });
+        $('li').mouseenter(function(){
+            $(this).animate({height:'+=20',weight:'+=10',background:'#ccc'})
+        })
+    })
+
+
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>move</title>
+    <script src="../jquery-3.2.1.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        border:0;
+        list-style: none;
+    }
+    ul{
+        width: 1000px;
+        height: 900px;
+        border:1px solid #ccc;
+        margin:20px auto;
+        position:relative;
+       /* display: flex;
+        justify-content: space-between;*/
+    }
+    li{
+        width: 200px;
+        height: 180px;
+        border:1px solid #ccc;
+        border-radius: 12px;
+        position:absolute;
+        bottom:0;
+    }
+
+
+</style>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>
+<script>
+    $(function(){
+        let li = $('li'),ul = $('ul')
+        let ulw = ul.width(),liw = li.outerWidth(),
+            margin = (ulw-liw*li.length)/(li.length-1);
+
+        /*li.css({left:function(index,value){
+            console.log(index,value)
+            return index*liw + index*margin;
+        }})*/
+        li.click(function () {
+            $(this).css({left:(ulw-liw),top:'0'});
+        }).map(function (index) {
+            /*return index*liw + index*margin;*/
+            return $(this).css({left:(liw+margin)*index});
+        });
+
+
+    })
+
+
+</script>
